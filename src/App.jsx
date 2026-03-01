@@ -26,6 +26,22 @@ function App() {
     }
   }, [isMenuOpen, resetTab]);
 
+  useEffect(() => {
+    const sections = document.querySelectorAll('section');
+    const options = { threshold: 0.5 };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, options);
+
+    sections.forEach((section) => observer.observe(section));
+    return () => sections.forEach((section) => observer.unobserve(section));
+  }, []);
+
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   const allProjects = [
@@ -108,38 +124,91 @@ function App() {
   ];
 
   const skillCategories = [
-      {
-        category: "Frontend Dev",
-        skills: [
-          { name: "React JS", level: 50 },
-          { name: "Tailwind CSS", level: 60 },
-          { name: "JavaScript", level: 25 },
-          { name: "Bootstrap", level: 85 }
-        ]
-      },
-      {
-        category: "Backend Dev",
-        skills: [
-          { name: "PHP / Laravel", level: 75 },
-          { name: "MySQL / SQL", level: 70 },
-          { name: "Node.js", level: 10 },
-          { name: "WordPress", level: 90 }
-        ]
-      },
-      {
-        category: "Data & Analysis",
-        skills: [
-          { name: "Python (Data)", level: 10 },
-          { name: "Power BI", level: 20 },
-          { name: "Excel Advanced", level: 50 },
-          { name: "Machine Learning", level: 5 }
-        ]
-      }
+  {
+    category: "Frontend Dev",
+    skills: [
+      { name: "React JS", icon: "/public/img/logo-languange/front-end/react.png" },
+      { name: "Tailwind", icon: "/public/img/logo-languange/front-end/tailwind.png" },
+      { name: "JavaScript", icon: "/public/img/logo-languange/front-end/js.png" },
+      { name: "Bootstrap", icon: "/public/img/logo-languange/front-end/bootstrap.png" },
+    ]
+  },
+  {
+    category: "Backend Dev",
+    skills: [
+      { name: "PHP", icon: "/public/img/logo-languange/back-end/php.png" },
+      { name: "Laravel", icon: "/public/img/logo-languange/back-end/laravel.png" },
+      { name: "MySQL", icon: "/public/img/logo-languange/back-end/mysql.png" },
+      { name: "Java", icon: "/public/img/logo-languange/back-end/java.png" },
+    ]
+  },
+  {
+    category: "Data & Analysis",
+    skills: [
+      { name: "Python", icon: "/public/img/logo-languange/data-analystic/python.png" },
+      { name: "Looker Studio", icon: "/public/img/logo-languange/data-analystic/looker.png" },
+      { name: "Excel", icon: "/public/img/logo-languange/data-analystic/excel.png" },
+      { name: "Google Collab", icon: "/public/img/logo-languange/data-analystic/collab.png" },
+    ]
+  }
   ];
+
+  const allCertifications = [
+  {
+    title: "Data Analyst Bootcamp Using Excel and SQL Analisis Data",
+    issuer: "Karirnex",
+    date: "Jan 2026",
+    image: "/public/img/sertifikat/Data Analyst Bootcamp Using Excel and SQL.jpg",
+    credentialUrl: "https://www.dicoding.com/certificates/...", 
+    tech: ["Looker Studio", "Excel", "DB Browser SQL"]
+  },
+  {
+    title: "Intro to Data Analytics",
+    issuer: "Revou",
+    date: "Feb 2026",
+    image: "/public/img/sertifikat/Intro to Data Analytics.jpg",
+    credentialUrl: "https://www.Dicoding Indonesia.org/certification/...",
+    tech: ["Excel", "Looker Studio"]
+  },
+  {
+    title: "Python For Data Analysis",
+    issuer: "My Skill",
+    date: "Feb 2026",
+    image: "/public/img/sertifikat/Python Introduction for Data Analysis.jpg",
+    credentialUrl: "https://www.freecodecamp.org/certification/...",
+    tech: ["Power BI", "Python", "Google Collab"]
+  },
+  {
+    title: "UI/UX Design",
+    issuer: "My Skill",
+    date: "Jan 2025",
+    image: "/public/img/sertifikat/UI:UX Design Fundamentals.jpg",
+    credentialUrl: "https://www.freecodecamp.org/certification/...",
+    tech: ["Figma"]
+  },
+  {
+    title: "Back End Developer",
+    issuer: "Dicoding Indonesia",
+    date: "Des 2024",
+    image: "/public/img/sertifikat/Back-End | Deploy Aplikasi dengan Aman.jpg",
+    credentialUrl: "https://www.freecodecamp.org/certification/...",
+    tech: ["GitLab CI/CD"]
+  },
+  {
+    title: "",
+    issuer: "Flutter UI Android Development",
+    date: "Des 2024",
+    image: "/public/img/sertifikat/Flutter | Ciptakan Animasi Epik dengan Animation.jpg",
+    credentialUrl: "https://www.freecodecamp.org/certification/...",
+    tech: ["Flutter"]
+  },
+];
 
   const visibleProjects = showAllProjects ? allProjects : allProjects.slice(0, 6);
   const featuredProjects = allProjects.slice(0, 3);
   const remainingProjects = allProjects.slice(3);
+  const [showAllCerts, setShowAllCerts] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   return (
     <div className="bg-slate-950 overflow-x-hidden">
@@ -167,7 +236,7 @@ function App() {
               <a href="#skills" onMouseEnter={handleMouseEnter} className="px-5 py-2 rounded-full z-10">Skills</a>
               <a href="#contact" onMouseEnter={handleMouseEnter} className="contact-btn px-6 py-2 rounded-full z-10">
                 Contact Me
-              </a>
+              </a>  
             </div>
           </div>
 
@@ -180,23 +249,24 @@ function App() {
           </button>
 
           <div className={`fixed inset-x-0 top-0 bg-slate-900 shadow-2xl transition-all duration-500 md:hidden z-[60] overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-            <div className="relative flex flex-col items-center pt-24 pb-12 space-y-4" onMouseLeave={resetTab}>
-              <div className="absolute bg-indigo-600 rounded-xl transition-all duration-300 pointer-events-none z-0" style={{
-                  top: `${tabStyle.top}px`,
-                  height: `${tabStyle.height}px`,
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '85%',
-                  opacity: tabStyle.opacity
-                }}/>
-              {['Home', 'About', 'Projects', 'Skills'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} onMouseEnter={handleMouseEnter} onClick={() => setIsMenuOpen(false)} className="relative z-10 text-xl font-bold text-slate-300 py-3 w-[85%] text-center">
-                  {item}
+            <div className="relative flex flex-col items-center pt-24 pb-12 space-y-4">
+              {/* Hapus div background lama yang menggunakan tabStyle.top karena kita sudah pakai bg-indigo-600 dinamis di bawah */}
+
+              {['home', 'about', 'projects', 'skills', 'certifications', 'contact'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item}`}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`w-[85%] py-4 text-center rounded-xl font-bold transition-all duration-300 relative z-10 ${
+                    activeSection === item 
+                      ? 'bg-indigo-600 text-white shadow-[0_0_20px_rgba(79,70,229,0.4)] scale-105' 
+                      : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+                  }`}
+                >
+                  {/* Membuat huruf pertama menjadi kapital secara otomatis */}
+                  {item === 'contact' ? 'Contact Me' : item.charAt(0).toUpperCase() + item.slice(1)}
                 </a>
               ))}
-              <a href="mailto:raynarham23@gmail.com" onMouseEnter={handleMouseEnter} className="contact-btn relative z-10 text-white py-3 rounded-xl font-bold w-[85%] text-center border border-white/10">
-                Contact Me
-              </a>
             </div>
           </div>
         </div>
@@ -397,63 +467,171 @@ function App() {
             ))}
           </div>
 
-          {!showAllProjects && allProjects.length > 3 && (
-            <div className="mt-8 flex justify-center">
-              <button 
-                onClick={() => setShowAllProjects(true)}
-                className="px-6 py-1 md:px-8 md:py-2 bg-indigo-900 text-white font-bold rounded-full hover:bg-slate-800 border-2 border-indigo-600 transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.3)]">
-                See All Portfolio
-              </button>
-            </div>
-          )}
+            {allProjects.length > 3 && (
+              <div className="mt-12 flex justify-center">
+                <button 
+                  onClick={() => {
+                    setShowAllProjects(!showAllProjects);
+                    // Opsional: Scroll kembali ke atas section projects saat di-close
+                    if (showAllProjects) {
+                      document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="px-6 py-1 md:px-8 md:py-2 bg-indigo-900 text-white font-bold rounded-full hover:bg-slate-800 border-2 border-indigo-600 transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.3)] flex items-center gap-2 group">
+                  {showAllProjects ? (
+                    <>
+                      Show Less 
+                      <svg className="w-4 h-4 transform rotate-180 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </>
+                  ) : (
+                    <>
+                      See All Portfolio
+                      <svg className="w-4 h-4 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
         </div>
       </section>
 
       {/* SKILLS SECTION */}
       <section id="skills" className="min-h-[100dvh] py-16 px-6 bg-slate-800/20 relative flex flex-col justify-center overflow-hidden">
         <div ref={skillAnim.elementRef} className={`max-w-6xl mx-auto w-full -mt-12 md:-mt-16 ${skillAnim.animationClass}`}>
+          
+          <div className="text-center mb-12">
+            <h2 className="text-indigo-500 font-bold tracking-[0.2em] uppercase text-lg mb-2">Capabilities</h2>
+            <h1 className="text-3xl md:text-5xl font-black text-white">Technical Skills</h1>
+          </div>
 
-            <div className="text-center mb-10">
-              <h2 className="text-indigo-500 font-bold tracking-[0.2em] uppercase text-lg mb-2">Capabilities</h2>
-              <h1 className="text-3xl md:text-5xl font-black text-white">Technical Skills</h1>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-              {skillCategories.map((cat, idx) => (
-                <div key={idx} className="bg-slate-900/40 p-6 md:p-8 rounded-3xl border border-slate-800 shadow-xl">
-                  <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                    <span className="w-8 h-1 bg-indigo-500 rounded-full"></span>
-                    {cat.category}
-                  </h3>
-                  
-                  <div className="space-y-6">
-                    {cat.skills.map((skill, sIdx) => (
-                      <div key={sIdx} className="group">
-                        <div className="flex justify-between mb-2">
-                          <span className="text-slate-300 font-medium group-hover:text-indigo-400 transition-colors">
-                            {skill.name}
-                          </span>
-                          <span className="text-indigo-400 font-bold">{skill.level}%</span>
-                        </div>
-                        
-                        <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
-                          <div className="h-full bg-gradient-to-r from-indigo-600 to-blue-500 rounded-full transition-all duration-1000 ease-out" style={{ width: `${skill.level}%` }}/>
-                        </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {skillCategories.map((cat, idx) => (
+              <div key={idx} className="bg-slate-900/40 p-6 md:p-8 rounded-3xl border border-slate-800 hover:border-indigo-500/30 transition-all duration-300 shadow-xl">
+                <h3 className="text-lg font-bold text-white mb-8 flex items-center gap-3">
+                  <span className="w-6 h-1 bg-indigo-500 rounded-full"></span>
+                  {cat.category}
+                </h3>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  {cat.skills.map((skill, sIdx) => (
+                    <div key={sIdx} className="group flex flex-col items-center p-4 bg-slate-800/30 rounded-2xl border border-slate-700/50 hover:bg-slate-900 hover:border-indigo-500/30 transition-all duration-300 active:scale-95 cursor-default">
+                      <div className="w-12 h-12 mb-3 flex items-center justify-center brightness-100 group-hover:brightness-50 group-hover:grayscale-[0.5] transition-all duration-500">
+                        <img 
+                          src={skill.icon} 
+                          alt={skill.name} 
+                          className="max-w-full max-h-full object-contain"
+                          onError={(e) => { e.target.src = "https://via.placeholder.com/50?text=Skill"; }} 
+                        />
                       </div>
-                    ))}
+                      
+                      <span className="text-[10px] md:text-xs font-bold text-slate-400 group-hover:text-indigo-400 transition-colors text-center uppercase tracking-tighter">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-slate-500 text-xs mt-12 italic max-w-2xl mx-auto border-t border-slate-800/50 pt-8">
+            "Terus belajar dan beradaptasi dengan teknologi terbaru untuk memberikan solusi yang paling efisien."
+          </p>
+        </div>
+      </section>
+
+      {/* --- CERTIFICATIONS SECTION --- */}
+      <section id="certifications" className="min-h-screen py-24 px-6 bg-slate-950 relative overflow-hidden border-t border-slate-900/50">
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px] -z-10"></div>
+        
+        <div ref={useScrollAnimation().elementRef} className="max-w-6xl mx-auto w-full">
+          <div className="text-center mb-16">
+            <h2 className="text-indigo-500 font-bold tracking-[0.2em] uppercase text-lg mb-2">Recognition</h2>
+            <h1 className="text-4xl md:text-5xl font-black text-white">Certifications</h1>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {(showAllCerts ? allCertifications : allCertifications.slice(0, 3)).map((cert, index) => (
+              <div key={index} className="group bg-slate-900/40 rounded-3xl border border-slate-800 overflow-hidden hover:border-indigo-500/50 transition-all duration-500 shadow-xl flex flex-col">
+                
+                <div className="relative h-48 w-full overflow-hidden bg-slate-800">
+                  <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
+                  <img 
+                    src={cert.image} 
+                    alt={cert.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                    onError={(e) => { e.target.src = "https://via.placeholder.com/400x250?text=Certificate"; }}
+                  />
+                </div>
+
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex justify-between items-start mb-3">
+                    <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-md">
+                      {cert.issuer}
+                    </span>
+                    <span className="text-slate-500 text-xs font-medium">{cert.date}</span>
+                  </div>
+                  
+                  <h3 className="text-lg font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors leading-tight">
+                    {cert.title}
+                  </h3>
+
+                  <div className="mt-auto">
+                    <a 
+                      href={cert.credentialUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="w-full py-3 bg-slate-800 text-white text-xs font-bold rounded-xl hover:bg-indigo-600 border border-slate-700 hover:border-indigo-500 transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                    >
+                      Show Credentials
+                      <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            <p className="text-center text-slate-500 text-sm mt-12 italic max-w-2xl mx-auto">
-              "Terus belajar dan beradaptasi dengan teknologi terbaru untuk memberikan solusi yang paling efisien."
-            </p>
+              </div>
+            ))}
           </div>
+
+          {allCertifications.length > 3 && (
+            <div className="mt-12 flex justify-center">
+              <button 
+                onClick={() => {
+                  setShowAllCerts(!showAllCerts);
+                  if (showAllCerts) {
+                    document.getElementById('certifications').scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="px-6 py-1 md:px-8 bg-indigo-900 text-white font-bold rounded-full hover:bg-slate-800 border-2 border-indigo-600 transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.3)] flex items-center gap-2 group"
+              >
+                {showAllCerts ? (
+                  <>
+                    Show Less 
+                    <svg className="w-4 h-4 transform rotate-180 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    See All Certifications
+                    <svg className="w-4 h-4 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
+        </div>
       </section>
 
       {/* --- CONTACT SECTION --- */}
-      <section id="contact" className="min-h-[100dvh] py-16 px-6 bg-slate-950 relative flex flex-col justify-center overflow-hidden">
+      <section id="contact" className="min-h-[100dvh] py-16 px-6 bg-slate-800/20 relative flex flex-col justify-center overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[120px] -z-10">
         </div>
 
@@ -537,7 +715,7 @@ function App() {
       </section>
 
       {/* --- FOOTER SECTION --- */}
-      <footer className="bg-slate-800/20 pt-20 pb-10 border-t border-slate-900 px-6">
+      <footer className="bg-slate-800/20 pt-20 pb-10 border-t border-t-slate-800 border-slate-900 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
             
