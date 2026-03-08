@@ -320,7 +320,7 @@ function App() {
             <div className="relative w-64 h-64 md:w-96 md:h-96">
               <div className="absolute inset-0 bg-indigo-300 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
               <div className="relative w-full h-full overflow-hidden rounded-[30%_70%_70%_30%/30%_30%_70%_70%] border-4 border-indigo-600 shadow-2xl bg-slate-800">
-                <img src="/img/profile2.png" alt="Raynar" className="w-full h-full object-cover" />
+                <img src="/img/profile3.PNG" alt="Raynar" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
