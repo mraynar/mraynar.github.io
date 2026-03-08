@@ -93,7 +93,7 @@ function App() {
       link: "https://github.com/mraynarr/my-portofolio"
     }, 
     {
-      title: "Shoping Kuy - Figma",
+      title: "SIPALING - Figma",
       desc: "Final project semester 3 membuat design aplikasi pelaporan warga",
       tech: ["Figma"],
       images: [
