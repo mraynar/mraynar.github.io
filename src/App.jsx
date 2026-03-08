@@ -305,7 +305,7 @@ function App() {
               <Github size={18} className="text-white" />
             </div>
             <span className="text-lg font-bold tracking-tighter text-white">
-              mraynarr<span className="text-white/60">.dev</span>
+              mraynar
             </span>
           </a>
 
@@ -364,7 +364,7 @@ function App() {
       </nav>
 
       {/* --- HERO SECTION --- */}
-      <section id="home" className="min-h-screen flex items-center pt-16 px-6 bg-slate-950">
+      <section id="home" className="min-h-screen flex items-center pt-24 md:pt-16 px-6 bg-slate-950">
         <div ref={heroAnim.elementRef} 
           className={`max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12 w-full ${heroAnim.animationClass}`}>
           <div className="flex-1 text-left">
@@ -375,7 +375,7 @@ function App() {
                 Raynar Hammam
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-8 max-w-lg">
+            <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-2 md:mb-8 max-w-lg">
               Information Systems Undergraduate specializing in data analytics and web developer.
             </p>
             <div className="flex flex-row gap-4">
