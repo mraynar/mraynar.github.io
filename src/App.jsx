@@ -442,7 +442,7 @@ function App() {
                     <GraduationCap size={20} className="text-indigo-400" />
                   </div>
                   
-                  <p className="text-indigo-400 text-sm font-bold mb-1">2023 - Present</p>
+                  <p className="text-indigo-400 text-sm font-bold mb-1">2024 - Present</p>
                   <h4 className="text-white font-bold text-lg leading-tight">Bachelor of Information Systems</h4>
                   <p className="text-slate-300 text-sm">UPN "Veteran" Jawa Timur</p>
                 </div>
@@ -453,9 +453,9 @@ function App() {
                     <GraduationCap size={20} className="text-slate-500" />
                   </div>
 
-                  <p className="text-slate-500 text-sm font-bold mb-1">2020 - 2023</p>
-                  <h4 className="text-white font-bold text-lg leading-tight">Software Engineering (RPL)</h4>
-                  <p className="text-slate-300 text-sm">SMK Negeri 1 Surabaya</p>
+                  <p className="text-slate-500 text-sm font-bold mb-1">2021 - 2024</p>
+                  <h4 className="text-white font-bold text-lg leading-tight">Rekayasa Perangkat lunak</h4>
+                  <p className="text-slate-300 text-sm">SMK Negeri 2 Surabaya</p>
                 </div>
               </div>
             </div>
