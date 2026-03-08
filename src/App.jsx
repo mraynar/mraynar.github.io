@@ -368,14 +368,14 @@ function App() {
         <div ref={heroAnim.elementRef} 
           className={`max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12 w-full ${heroAnim.animationClass}`}>
           <div className="flex-1 text-left">
-            <h2 className="text-indigo-400 font-bold tracking-widest text-xl uppercase mb-4">Halo Semua! Saya</h2>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-200 leading-[1.1] mb-4">
+            <h2 className="text-indigo-400 font-bold tracking-widest text-xl uppercase mb-3 md:mb-4">Halo Semua! Saya</h2>
+            <h1 className="text-4xl md:text-6xl font-black text-slate-200 leading-[1.1] mb-2 md:mb-4">
               Muhammad <br /> 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
                 Raynar Hammam
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-2 md:mb-8 max-w-lg">
+            <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-3 md:mb-8 max-w-lg">
               Information Systems Undergraduate specializing in data analytics and web developer.
             </p>
             <div className="flex flex-row gap-4">
