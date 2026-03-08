@@ -375,7 +375,7 @@ function App() {
                 Raynar Hammam
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-3 md:mb-8 max-w-lg">
+            <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-4 md:mb-8 max-w-lg">
               Information Systems Undergraduate specializing in data analytics and web developer.
             </p>
             <div className="flex flex-row gap-4">
