@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavAnimation } from './hooks/useNavAnimation';
 import { useScrollAnimation } from './hooks/useScrollAnimation'; 
-import { Linkedin, Github, Mail } from 'lucide-react';
+import { Linkedin, Github, Mail, GraduationCap } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules'; 
+// Tambahkan GraduationCap di sini
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -30,19 +31,34 @@ function App() {
       desc: "Platform e-commerce klasik berbasis PHP dengan manajemen katalog produk.",
       tech: ["PHP", "CSS", "MySQL", "JS"],
       images: [
+        "/img/shoping-kuy/ShopingKuy.png",
         "/img/shoping-kuy/sk-hero.png", 
         "/img/shoping-kuy/sk-menu.png", 
         "/img/shoping-kuy/sk-about.png", 
         "/img/shoping-kuy/sk-kategori.png", 
         "/img/shoping-kuy/sk-contact.png", 
       ],
-      link: "https://github.com/mraynarr/my-portofolio" // Ganti localhost agar bisa dibuka orang lain
+      link: "https://github.com/mraynarr/my-portofolio" 
+    }, 
+    {
+      title: "Griya Asri Kos - Laravel",
+      desc: "Website portofolio sebagai tugas Sekolah Menengah Kejurusan",
+      tech: ["Laravel", "Tailwind", "JS"],
+      images: [
+        "/img/sewa-kos/GriyaAsri.png",
+        "/img/sewa-kos/kos1.png",  
+        "/img/sewa-kos/kos2.png",  
+        "/img/sewa-kos/kos3.png",  
+        "/img/sewa-kos/kos4.png",  
+      ],
+      link: "https://github.com/mraynarr/my-portofolio"
     }, 
     {
       title: "Rental Mobil & Motor - Laravel",
       desc: "Website Rental Mobil dan Motor dengan pemesanan digital",
       tech: ["Laravel", "Bootstrap", "JS", "MySQL"],
       images: [
+        "/img/rental/Car Rent.png",
         "/img/rental/rental-home.png",  
         "/img/rental/rental-product.png",  
         "/img/rental/rental-order.png",  
@@ -77,10 +93,11 @@ function App() {
       link: "https://github.com/mraynarr/my-portofolio"
     }, 
     {
-      title: "Final Project Design - Figma",
+      title: "Shoping Kuy - Figma",
       desc: "Final project semester 3 membuat design aplikasi pelaporan warga",
       tech: ["Figma"],
       images: [
+        "/img/figma1/SIPALING MOCKUP.png",
         "/img/figma1/fp-3.png",
         "/img/figma1/fp-4.png",
         "/img/figma1/figma-wf.png",
@@ -89,17 +106,7 @@ function App() {
       ],
       link: "https://github.com/mraynarr/my-portofolio"
     }, 
-    {
-      title: "Portofolio - TailwindCSS",
-      desc: "Website portofolio sebagai tugas Sekolah Menengah Kejurusan",
-      tech: ["HTML", "Tailwind", "JS"],
-      images: [
-        "/img/pf/pf-home.png",  
-        "/img/pf/pf-contact.png",  
-        "/img/pf/pf-blog.png",  
-      ],
-      link: "https://github.com/mraynarr/my-portofolio"
-    }, 
+    
   ];
 
   const skillCategories = [
@@ -214,10 +221,23 @@ function App() {
       {/* --- NAVBAR --- */}
       <nav className="fixed w-full bg-indigo-600/90 backdrop-blur-md z-50 border-b-2 border-white/10">
         <div className="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center relative" ref={containerRef}>
-          <div className="text-xl font-extrabold tracking-tighter text-white z-[70]">
-            RAYNAR.<span className="text-white/80">ID</span>
-          </div>
+          
+          {/* BAGIAN BARU: Ikon GitHub & Nama (Muncul di Desktop & Mobile) */}
+          <a 
+            href="https://github.com/mraynarr" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center gap-2 group z-[70]"
+          >
+            <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center group-hover:bg-indigo-500 transition-all duration-300">
+              <Github size={18} className="text-white" />
+            </div>
+            <span className="text-lg font-bold tracking-tighter text-white">
+              mraynarr
+            </span>
+          </a>
 
+          {/* Navbar Links Desktop */}
           <div className="hidden md:flex items-center relative py-2" onMouseLeave={resetTab}>
             <div 
               className="absolute bg-slate-900 rounded-full transition-all duration-300 ease-out h-10 pointer-events-none"
@@ -240,7 +260,8 @@ function App() {
             </div>
           </div>
 
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden z-[70] text-white">
+          {/* Hamburger Button Mobile */}
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden z-[70] text-white p-2">
             <div className="w-6 h-5 relative flex flex-col justify-between">
               <span className={`h-0.5 w-6 bg-white transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
               <span className={`h-0.5 w-6 bg-white transition-all ${isMenuOpen ? 'opacity-0' : ''}`}></span>
@@ -248,9 +269,9 @@ function App() {
             </div>
           </button>
 
+          {/* Menu Overlay Mobile */}
           <div className={`fixed inset-x-0 top-0 bg-slate-900 shadow-2xl transition-all duration-500 md:hidden z-[60] overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="relative flex flex-col items-center pt-24 pb-12 space-y-4">
-
               {['home', 'about', 'projects', 'skills', 'certifications', 'contact'].map((item) => (
                 <a
                   key={item}
@@ -320,7 +341,7 @@ function App() {
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
 
             <div className="bg-slate-900/50 p-7 md:p-8 rounded-3xl border border-slate-800 hover:border-indigo-500/50 transition-colors duration-300 shadow-xl flex flex-col justify-center">
               <h3 className="text-indigo-500 font-bold tracking-wider uppercase text-base md:text-lg mb-1">
@@ -334,7 +355,40 @@ function App() {
               </p>
             </div>
 
-            <div className="bg-slate-900/50 p-7 md:p-8 rounded-3xl border border-slate-800 hover:border-indigo-500/50 transition-colors duration-300 shadow-xl flex flex-col justify-between">
+            <div className="bg-slate-900/50 p-7 md:p-8 rounded-3xl border border-slate-800 hover:border-indigo-500/50 transition-colors duration-300 shadow-xl flex flex-col">
+              <h3 className="text-indigo-500 font-bold tracking-wider uppercase text-base md:text-lg mb-1">
+                Akademik
+              </h3>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                Pendidikan
+              </h2>
+              
+              <div className="space-y-8 relative border-l-2 border-slate-700 ml-4 md:ml-6">
+                {/* Kuliah */}
+                <div className="relative pl-8 md:pl-10">
+                  <div className="absolute -left-[21px] top-0 w-10 h-10 bg-slate-950 border-2 border-indigo-500 rounded-full flex items-center justify-center z-20">
+                    <GraduationCap size={20} className="text-indigo-400" />
+                  </div>
+                  
+                  <p className="text-indigo-400 text-sm font-bold mb-1">2024 - Present</p>
+                  <h4 className="text-white font-bold text-lg leading-tight">Bachelor of Information Systems</h4>
+                  <p className="text-slate-300 text-sm">UPN "Veteran" Jawa Timur</p>
+                </div>
+
+                {/* SMK */}
+                <div className="relative pl-8 md:pl-10">
+                  <div className="absolute -left-[21px] top-0 w-10 h-10 bg-slate-950 border-2 border-slate-700 rounded-full flex items-center justify-center z-20">
+                    <GraduationCap size={20} className="text-slate-500" />
+                  </div>
+
+                  <p className="text-slate-500 text-sm font-bold mb-1">2021 - 2024</p>
+                  <h4 className="text-white font-bold text-lg leading-tight">Rekayasa Perangkat Lunak</h4>
+                  <p className="text-slate-300 text-sm">SMK Negeri 2 Surabaya</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-slate-900/50 p-7 md:p-8 rounded-3xl border border-slate-800 hover:border-indigo-500/50 transition-colors duration-300 shadow-xl flex flex-col justify-between md:col-span-2 lg:col-span-1">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
                   Let's Connect
