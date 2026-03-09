@@ -379,22 +379,25 @@ function App() {
               <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-4 md:mb-8 max-w-lg">
                 Information Systems Undergraduate specializing in data analytics and web developer.
               </p>
-              <div className="flex flex-row gap-4">
-                <a href="/CV-Muhammad-Raynar-Hammam.pdf" 
-                  download="CV-Raynar-Hammam.pdf"
-                  className="flex-1 sm:flex-none px-8 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-all text-center flex items-center justify-center gap-2"
+              <div className="flex flex-col sm:flex-row gap-3 mt-8 w-full">
+                <a 
+                  href="/CV-Muhammad-Raynar-Hammam.pdf" 
+                  download 
+                  className="flex-1 px-6 py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 text-sm sm:text-base whitespace-nowrap"
                 >
                   Unduh CV
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
                 </a>
-                
-                <a href="#projects" 
-                  className="flex-1 sm:flex-none px-8 py-3 border-2 border-slate-500 text-slate-300 font-bold rounded-xl hover:border-indigo-500 hover:text-white transition-all text-center flex items-center justify-center gap-2 group"
+
+                {/* TOMBOL LIHAT PROJECT */}
+                <a 
+                  href="#projects" 
+                  className="flex-1 px-6 py-4 border-2 border-slate-700 text-slate-300 font-bold rounded-xl hover:border-indigo-500 hover:text-white transition-all flex items-center justify-center gap-2 text-sm sm:text-base whitespace-nowrap group"
                 >
                   Lihat Project
-                  <Layout size={18} className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
+                  <Layout size={18} className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
                 </a>
               </div>
           </div>
