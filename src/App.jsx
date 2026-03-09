@@ -368,18 +368,23 @@ function App() {
         <div ref={heroAnim.elementRef} 
           className={`max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12 w-full ${heroAnim.animationClass}`}>
 
-          <div className="flex-1 text-left">
-              <h2 className="text-indigo-400 font-bold tracking-widest text-xl uppercase -mt-4 md:mt-0 mb-3 md:mb-4">Halo Semua! Saya</h2>
+          {/* KONTEN TEKS */}
+          <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start w-full">
+              <h2 className="text-indigo-400 font-bold tracking-widest text-xl uppercase -mt-4 md:mt-0 mb-3 md:mb-4">
+                Halo Semua! Saya
+              </h2>
               <h1 className="text-4xl md:text-6xl font-black text-slate-200 leading-[1.1] mb-2 md:mb-4">
                 Muhammad <br /> 
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
                   Raynar Hammam
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-4 md:mb-8 max-w-lg">
-                Information Systems Undergraduate specializing in data analytics and web developer.
+              <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-4 md:mb-4 max-w-lg">
+              Information Systems student blending Web Full-Stack Development and Data Analysis to solve complex business and digital challenges.              
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 mt-8 w-full">
+              
+              {/* BUTTONS: Kembali ke Lebar Semula */}
+              <div className="flex flex-col sm:flex-row gap-3 mt-4 w-full">
                 <a 
                   href="/CV-Muhammad-Raynar-Hammam.pdf" 
                   download 
@@ -391,10 +396,9 @@ function App() {
                   </svg>
                 </a>
 
-                {/* TOMBOL LIHAT PROJECT */}
                 <a 
                   href="#projects" 
-                  className="flex-1 px-6 py-4 border-2 border-slate-700 text-slate-300 font-bold rounded-xl hover:border-indigo-500 hover:text-white transition-all flex items-center justify-center gap-2 text-sm sm:text-base whitespace-nowrap group"
+                  className="flex-1 px-6 py-4 border-2 border-indigo-500 text-slate-300 font-bold rounded-xl hover:border-indigo-700 hover:text-indigo-300 transition-all flex items-center justify-center gap-2 text-sm sm:text-base whitespace-nowrap group"
                 >
                   Lihat Project
                   <Layout size={18} className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
@@ -402,10 +406,13 @@ function App() {
               </div>
           </div>
 
-          <div className="flex-1 flex justify-center">
+          {/* KONTEN GAMBAR: Geser Kanan di Desktop */}
+          <div className="flex-1 flex justify-center md:justify-end md:pl-16">
             <div className="relative w-64 h-64 md:w-96 md:h-96">
               <div className="absolute inset-0 bg-indigo-300 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
-              <div className="relative w-full h-full overflow-hidden rounded-[30%_70%_70%_30%/30%_30%_70%_70%] border-4 border-indigo-600 shadow-2xl bg-slate-800">
+              
+              {/* BLOB: Update Nilai agar Lebih Rounded/Halus */}
+              <div className="relative w-full h-full overflow-hidden rounded-[40%_60%_60%_40%/40%_40%_60%_60%] border-4 border-indigo-600 shadow-2xl bg-slate-800">
                 <img src="/img/profile3.PNG" alt="Raynar" className="w-full h-full object-cover" />
               </div>
             </div>
