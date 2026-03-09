@@ -384,7 +384,7 @@ function App() {
               </p>
               
               {/* BUTTONS: Kembali ke Lebar Semula */}
-              <div className="flex flex-col sm:flex-row gap-3 mt-4 w-full">
+              <div className="flex flex-col sm:flex-row gap-3 mt-2 sm:mt-4 w-full">
                 <a 
                   href="/CV-Muhammad-Raynar-Hammam.pdf" 
                   download 
