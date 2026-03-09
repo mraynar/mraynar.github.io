@@ -434,7 +434,7 @@ function App() {
                 Biodata & Minat 
               </h2>
               <p className="text-slate-400 text-[15px] md:text-base leading-relaxed text-justify">
-                Mahasiswa Sistem Informasi dengan latar belakang <span className="text-indigo-400 font-semibold">RPL</span>. Memadukan pengalaman <span className="text-indigo-300 font-bold"> Software Development </span> sejak sekolah menengah dengan analisis strategi bisnis. Fokus pada integrasi <span className="text-indigo-300 font-bold" > Data Analytics </span> untuk menciptakan solusi teknologi yang efisien dan relevan dengan industri.
+                Mahasiswa Sistem Informasi dengan latar belakang <span className="text-indigo-400 font-semibold">RPL</span>. Memadukan pengalaman <span className="text-indigo-300 font-bold"> Web Developer </span> sejak sekolah menengah dengan analisis strategi bisnis. Fokus pada integrasi <span className="text-indigo-300 font-bold" > Data Analytics </span> untuk menciptakan solusi teknologi yang efisien dan relevan dengan industri.
               </p>
             </div>
 
