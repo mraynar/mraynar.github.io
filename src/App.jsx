@@ -380,7 +380,7 @@ function App() {
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-4 md:mb-4 max-w-lg">
-              Information Systems student blending Web Full-Stack Development and Data Analysis to solve complex business and digital challenges.              
+              Information Systems student focusing on Full-Stack Web Development & Data Analysis.
               </p>
               
               {/* BUTTONS: Kembali ke Lebar Semula */}
