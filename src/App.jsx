@@ -364,7 +364,7 @@ function App() {
       </nav>
 
       {/* --- HERO SECTION --- */}
-      <section id="home" className="min-h-screen flex items-center pt-24 md:pt-16 px-6 bg-slate-950">
+      <section id="home" className="min-h-screen flex items-center pt-24 md:pt-16 px-6 mb-6 md:mb-0 bg-slate-950">
         <div ref={heroAnim.elementRef} 
           className={`max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12 w-full ${heroAnim.animationClass}`}>
 
