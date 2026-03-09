@@ -38,7 +38,7 @@ function App() {
         // "/img/shoping-kuy/sk-kategori.png", 
         // "/img/shoping-kuy/sk-contact.png", 
       ],
-      link: "https://github.com/mraynarr/my-portofolio" 
+      link: "https://github.com/mraynar/my-portofolio" 
     }, 
     {
       title: "Griya Asri Kos - Laravel",
@@ -51,7 +51,7 @@ function App() {
         // "/img/sewa-kos/kos3.png",  
         // "/img/sewa-kos/kos4.png",  
       ],
-      link: "https://github.com/mraynarr/my-portofolio"
+      link: "https://github.com/mraynar/my-portofolio"
     }, 
     {
       title: "Rental Mobil & Motor - Laravel",
@@ -65,7 +65,7 @@ function App() {
         // "/img/rental/rental-about.png",  
         // "/img/rental/rental-admin.png",  
       ],
-      link: "https://github.com/mraynarr/my-portofolio"
+      link: "https://github.com/mraynar/my-portofolio"
     }, 
     {
       title: "FMCG Sales Performance Diatribution Analysis",
@@ -78,7 +78,7 @@ function App() {
         "/img/data1/looker4.png", 
         "/img/data1/data5.png", 
       ],
-      link: "https://github.com/mraynarr/my-portofolio"
+      link: "https://github.com/mraynar/my-portofolio"
     }, 
     {
       title: "Website UKM - Wordpress",
@@ -90,7 +90,7 @@ function App() {
         "/img/ukm/ukm-bidang.png", 
         "/img/ukm/ukm-about.png", 
       ],
-      link: "https://github.com/mraynarr/my-portofolio"
+      link: "https://github.com/mraynar/my-portofolio"
     }, 
     {
       title: "SIPALING - Figma",
@@ -104,7 +104,7 @@ function App() {
         "/img/figma1/fp-1.png",
         "/img/figma1/fp-2.png",
       ],
-      link: "https://github.com/mraynarr/my-portofolio"
+      link: "https://github.com/mraynar/my-portofolio"
     }, 
     
   ];
@@ -145,7 +145,7 @@ function App() {
       issuer: "Karirnex",
       date: "Jan 2026",
       image: "/img/sertifikat/Data Analyst Bootcamp Using Excel and SQL.jpg",
-      credentialUrl: "https://github.com/mraynarr/my-portofolio", 
+      credentialUrl: "https://github.com/mraynar/my-portofolio", 
       tech: ["Looker Studio", "Excel", "DB Browser SQL"]
     },
     {
@@ -153,7 +153,7 @@ function App() {
       issuer: "Revou",
       date: "Feb 2026",
       image: "/img/sertifikat/Intro to Data Analytics.jpg",
-      credentialUrl: "https://github.com/mraynarr/my-portofolio",
+      credentialUrl: "https://github.com/mraynar/my-portofolio",
       tech: ["Excel", "Looker Studio"]
     },
     {
@@ -161,7 +161,7 @@ function App() {
       issuer: "My Skill",
       date: "Feb 2026",
       image: "/img/sertifikat/Python Introduction for Data Analysis.jpg",
-      credentialUrl: "https://github.com/mraynarr/my-portofolio",
+      credentialUrl: "https://github.com/mraynar/my-portofolio",
       tech: ["Power BI", "Python", "Google Collab"]
     },
     {
@@ -169,7 +169,7 @@ function App() {
       issuer: "My Skill",
       date: "Jan 2025",
       image: "/img/sertifikat/UI:UX Design Fundamentals.jpg", 
-      credentialUrl: "https://github.com/mraynarr/my-portofolio",
+      credentialUrl: "https://github.com/mraynar/my-portofolio",
       tech: ["Figma"]
     },
     {
@@ -177,7 +177,7 @@ function App() {
       issuer: "Dicoding Indonesia",
       date: "Des 2024",
       image: "/img/sertifikat/Back-End | Deploy Aplikasi dengan Aman.jpg",
-      credentialUrl: "https://github.com/mraynarr/my-portofolio",
+      credentialUrl: "https://github.com/mraynar/my-portofolio",
       tech: ["GitLab CI/CD"]
     },
     {
@@ -185,7 +185,7 @@ function App() {
       issuer: "Dicoding Indonesia",
       date: "Des 2024",
       image: "/img/sertifikat/Flutter | Ciptakan Animasi Epik dengan Animation.jpg",
-      credentialUrl: "https://github.com/mraynarr/my-portofolio",
+      credentialUrl: "https://github.com/mraynar/my-portofolio",
       tech: ["Flutter"]
     },
   ];
@@ -224,7 +224,7 @@ function App() {
           
           {/* BAGIAN BARU: Ikon GitHub & Nama (Muncul di Desktop & Mobile) */}
           <a 
-            href="https://github.com/mraynarr" 
+            href="https://github.com/mraynar" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex items-center gap-2 group z-[70]"
@@ -233,7 +233,7 @@ function App() {
               <Github size={18} className="text-white" />
             </div>
             <span className="text-lg font-bold tracking-tighter text-white">
-              mraynarr
+              mraynar
             </span>
           </a>
 
@@ -296,7 +296,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center relative" ref={containerRef}>
           
           <a 
-            href="https://github.com/mraynarr" 
+            href="https://github.com/mraynar" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex items-center gap-2 group z-[70]"
@@ -779,7 +779,7 @@ function App() {
                     {[
                       { icon: <Mail className="text-indigo-500" size={20} />, label: "Email", value: "raynarham23@gmail.com", href: "mailto:raynarham23@gmail.com" },
                       { icon: <Linkedin className="text-indigo-500" size={20} />, label: "LinkedIn", value: "Muhammad Raynar Hammam", href: "#" },
-                      { icon: <Github className="text-indigo-500" size={20} />, label: "GitHub", value: "mraynarr", href: "#" },
+                      { icon: <Github className="text-indigo-500" size={20} />, label: "GitHub", value: "mraynar", href: "#" },
                     ].map((item, i) => (
                       <a key={i} href={item.href} className="flex items-center gap-4 group cursor-pointer">
                         <div className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center group-hover:bg-indigo-600 transition-all duration-300">
