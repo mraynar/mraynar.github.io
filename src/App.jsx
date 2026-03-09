@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavAnimation } from './hooks/useNavAnimation';
 import { useScrollAnimation } from './hooks/useScrollAnimation'; 
-import { Linkedin, Github, Mail, GraduationCap } from 'lucide-react';
+import { Linkedin, Github, Mail, GraduationCap, Layout } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules'; 
 // Tambahkan GraduationCap di sini
@@ -32,11 +32,11 @@ function App() {
       tech: ["PHP", "CSS", "MySQL", "JS"],
       images: [
         "/img/shoping-kuy/ShopingKuy.png",
-        "/img/shoping-kuy/sk-hero.png", 
-        "/img/shoping-kuy/sk-menu.png", 
-        "/img/shoping-kuy/sk-about.png", 
-        "/img/shoping-kuy/sk-kategori.png", 
-        "/img/shoping-kuy/sk-contact.png", 
+        // "/img/shoping-kuy/sk-hero.png", 
+        // "/img/shoping-kuy/sk-menu.png", 
+        // "/img/shoping-kuy/sk-about.png", 
+        // "/img/shoping-kuy/sk-kategori.png", 
+        // "/img/shoping-kuy/sk-contact.png", 
       ],
       link: "https://github.com/mraynarr/my-portofolio" 
     }, 
@@ -46,10 +46,10 @@ function App() {
       tech: ["Laravel", "Tailwind", "JS"],
       images: [
         "/img/sewa-kos/GriyaAsri.png",
-        "/img/sewa-kos/kos1.png",  
-        "/img/sewa-kos/kos2.png",  
-        "/img/sewa-kos/kos3.png",  
-        "/img/sewa-kos/kos4.png",  
+        // "/img/sewa-kos/kos1.png",  
+        // "/img/sewa-kos/kos2.png",  
+        // "/img/sewa-kos/kos3.png",  
+        // "/img/sewa-kos/kos4.png",  
       ],
       link: "https://github.com/mraynarr/my-portofolio"
     }, 
@@ -59,11 +59,11 @@ function App() {
       tech: ["Laravel", "Bootstrap", "JS", "MySQL"],
       images: [
         "/img/rental/Car Rent.png",
-        "/img/rental/rental-home.png",  
-        "/img/rental/rental-product.png",  
-        "/img/rental/rental-order.png",  
-        "/img/rental/rental-about.png",  
-        "/img/rental/rental-admin.png",  
+        // "/img/rental/rental-home.png",  
+        // "/img/rental/rental-product.png",  
+        // "/img/rental/rental-order.png",  
+        // "/img/rental/rental-about.png",  
+        // "/img/rental/rental-admin.png",  
       ],
       link: "https://github.com/mraynarr/my-portofolio"
     }, 
@@ -367,25 +367,36 @@ function App() {
       <section id="home" className="min-h-screen flex items-center pt-24 md:pt-16 px-6 bg-slate-950">
         <div ref={heroAnim.elementRef} 
           className={`max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12 w-full ${heroAnim.animationClass}`}>
+
           <div className="flex-1 text-left">
-            <h2 className="text-indigo-400 font-bold tracking-widest text-xl uppercase -mt-4 md:mt-0 mb-3 md:mb-4">Halo Semua! Saya</h2>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-200 leading-[1.1] mb-2 md:mb-4">
-              Muhammad <br /> 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
-                Raynar Hammam
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-4 md:mb-8 max-w-lg">
-              Information Systems Undergraduate specializing in data analytics and web developer.
-            </p>
-            <div className="flex flex-row gap-4">
-              <a href="https://wa.me/6289502390206?text=Halo%20Raynar,%20saya%20tertarik%20untuk%20bekerja%20sama%20dengan%20Anda." target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none px-8 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-all text-center">
-                Hubungi saya
-              </a>
-              <a href="#projects" className="flex-1 sm:flex-none px-8 py-3 border-2 border-slate-500 text-slate-300 font-bold rounded-xl hover:border-indigo-500 transition-all text-center">
-                Lihat Project
-              </a>
-            </div>
+              <h2 className="text-indigo-400 font-bold tracking-widest text-xl uppercase -mt-4 md:mt-0 mb-3 md:mb-4">Halo Semua! Saya</h2>
+              <h1 className="text-4xl md:text-6xl font-black text-slate-200 leading-[1.1] mb-2 md:mb-4">
+                Muhammad <br /> 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
+                  Raynar Hammam
+                </span>
+              </h1>
+              <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-4 md:mb-8 max-w-lg">
+                Information Systems Undergraduate specializing in data analytics and web developer.
+              </p>
+              <div className="flex flex-row gap-4">
+                <a href="/CV-Muhammad-Raynar-Hammam.pdf" 
+                  download="CV-Raynar-Hammam.pdf"
+                  className="flex-1 sm:flex-none px-8 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-all text-center flex items-center justify-center gap-2"
+                >
+                  Unduh CV
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </a>
+                
+                <a href="#projects" 
+                  className="flex-1 sm:flex-none px-8 py-3 border-2 border-slate-500 text-slate-300 font-bold rounded-xl hover:border-indigo-500 hover:text-white transition-all text-center flex items-center justify-center gap-2 group"
+                >
+                  Lihat Project
+                  <Layout size={18} className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
+                </a>
+              </div>
           </div>
 
           <div className="flex-1 flex justify-center">
