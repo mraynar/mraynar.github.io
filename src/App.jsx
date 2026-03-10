@@ -4,7 +4,7 @@ import { useScrollAnimation } from './hooks/useScrollAnimation';
 import { Linkedin, Github, Mail, GraduationCap, Layout } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules'; 
-// Tambahkan GraduationCap di sini
+import { motion } from "framer-motion"; 
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -368,20 +368,57 @@ function App() {
         <div ref={heroAnim.elementRef} 
           className={`max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12 w-full ${heroAnim.animationClass}`}>
 
-          {/* KONTEN TEKS */}
           <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start w-full">
-              <h2 className="text-indigo-400 font-bold tracking-widest text-xl uppercase -mt-4 md:mt-0 mb-3 md:mb-4">
+            <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-indigo-400 font-bold tracking-widest text-xl uppercase -mt-4 md:mt-0 mb-3 md:mb-4"
+              >
                 Halo Semua! Saya
-              </h2>
-              <h1 className="text-4xl md:text-6xl font-black text-slate-200 leading-[1.1] mb-2 md:mb-4">
-                Muhammad <br /> 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
-                  Raynar Hammam
-                </span>
+              </motion.h2>
+
+              <h1 className="text-4xl md:text-6xl font-black text-slate-200 leading-[1.1] mb-2 md:mb-4 flex flex-col">
+
+                <div className="flex flex-wrap justify-center md:justify-start">
+                  {"Muhammad".split("").map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap justify-center md:justify-start text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">
+                  {"Raynar Hammam".split("").map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ 
+                        duration: 0.3, 
+                        delay: 0.8 + index * 0.05 
+                      }}
+                    >
+                      {char === " " ? "\u00A0" : char}
+                    </motion.span>
+                  ))}
+                </div>
               </h1>
-              <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-4 md:mb-4 max-w-lg">
-              Information Systems student focusing on Full-Stack Web Development & Data Analysis.
-              </p>
+
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1.5 }}
+                className="text-lg md:text-xl text-slate-400 leading-relaxed mb-4 md:mb-4 max-w-lg"
+              >
+                Information Systems student focusing on{" "}
+                <span className="text-slate-300 font-medium">Full-Stack Web Developer & Data Analysis.</span>
+              </motion.p>
               
               {/* BUTTONS: Kembali ke Lebar Semula */}
               <div className="flex flex-col sm:flex-row gap-3 mt-2 sm:mt-4 w-full">
