@@ -675,7 +675,7 @@ function App() {
           
           <div className="text-center mb-12">
             <h2 className="text-indigo-500 font-bold tracking-[0.2em] uppercase text-lg mb-2">Capabilities</h2>
-            <h1 className="text-3xl md:text-5xl font-black text-white">Technical Skills</h1>
+            <h1 className="text-3xl md:text-5xl font-black text-white">Technical Skills & Tools</h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
