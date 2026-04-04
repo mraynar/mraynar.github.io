@@ -68,6 +68,15 @@ function App() {
       link: "https://github.com/mraynar/my-portofolio"
     }, 
     {
+      title: "DATA FMCG 2025 - Power BI",
+      desc: "Project Bootcamp Data Analyst",
+      tech: ["Power BI"],
+      images: [
+        "/img/porto-data.jpg",
+      ],
+      link: ""
+    }, 
+    {
       title: "FMCG Sales Performance Diatribution Analysis",
       desc: "Menganalisis +19.000 transaksi retail untuk mengoptimalkan strategi penjualan dan efektivitas promosi.",
       tech: ["Looker Studio", "DB Browser", "Excel"],
