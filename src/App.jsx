@@ -149,6 +149,22 @@ function App() {
   ];
 
   const allCertifications = [
+     {
+      title: "Master in Data Analysis and Analytics",
+      issuer: "Uddemy",
+      date: "Mar 2026",
+      image: "/img/sertifikat/Master in Data Analysis and Analytics.jpg",
+      credentialUrl: "https://github.com/mraynar/my-portofolio", 
+      tech: ["Looker Studio", "Excel", "DB Browser SQL"]
+    },
+     {
+      title: "JavaScript 20 Projects In 20 Days",
+      issuer: "Udemy",
+      date: "Jan 2026",
+      image: "/img/sertifikat/java script.jpg",
+      credentialUrl: "https://github.com/mraynar/my-portofolio", 
+      tech: ["Looker Studio", "Excel", "DB Browser SQL"]
+    },
     {
       title: "Data Analyst Bootcamp Using Excel and SQL Analisis Data",
       issuer: "Karirnex",
